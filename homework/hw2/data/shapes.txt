@@ -1,0 +1,10 @@
+Rectangle 12 6
+Circle 14
+Triangle 11 11 7
+Circle 5
+Circle 10
+Rectangle 5 12
+Triangle 5 5 5
+Triangle 6 4 7
+Triangle 10 9 8
+Circle 12

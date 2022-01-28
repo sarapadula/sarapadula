@@ -1,0 +1,10 @@
+Rectangle Area: 72
+Circle Perimeter: 615.44
+Triangle Area: 60.5
+Circle Area: 31.4
+Circle Perimeter: 314
+Rectangle Area: 60
+Triangle Area: 12.5
+Triangle Area: 12
+Triangle Area: 45
+Circle Area: 75.36
