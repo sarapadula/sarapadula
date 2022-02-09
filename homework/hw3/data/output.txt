@@ -1,0 +1,11 @@
+rectangle AREA: 6
+rectangle AREA: 6
+rectangle AREA: 6
+rectangle AREA: 30
+circle AREA: 31.4
+triangle AREA: 1
+triangle AREA: 12.5
+circle AREA: 56.52
+rectangle AREA: 96
+circle AREA: 75.36
+triangle AREA: 25
