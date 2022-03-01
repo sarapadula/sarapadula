@@ -1,16 +1,25 @@
 #pragma once
 #include "EmailHeaderType.h"
-class GmailHeaderType
+#ifndef GMAILHEADERTYPE_H_
+#define GMAILHEADERTYPE_H_
+class GmailHeaderType: public EmailHeaderType
 {
 public:
 	string header;
-	string part;
-	string regex_rule;
+	string value;
 
 	GmailHeaderType(string);
 
 	string getHeader();
 	void setHeader(string);
 
+	string getDeliveredTo();
+	string getGoogle();
+	string getReplyto();
+	string getMime();
+	string getCTE();
+
 };
+
+#endif GMAILHEADERTYPE_H_
 
