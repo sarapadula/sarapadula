@@ -8,6 +8,12 @@
 #include "OutlookHeaderType.h"
 #include "GmailHeaderType.h"
 
+string toLower(std::string s) {
+    transform(s.begin(), s.end(), s.begin(),
+        [](unsigned char c) { return std::tolower(c); });
+    return s;
+}
+
 using namespace std;
 
 void PrintMatches(string str, regex reg)
@@ -44,109 +50,135 @@ int main()
 
     }
     OutlookHeaderType outlook(email.getHeader());
-    string a = email.getHeader();
-    GmailHeaderType gmail(a);
+    GmailHeaderType gmail(email.getHeader());
     
     cout << "PLEASE ENTER WHAT PART OF THE HEADER YOU WOULD LIKE TO EXTRACT" << endl;
     string part;
     cin >> part;
 
-    if (part == "Received" || part == "received")
+    if (toLower(part) == "received")
     {
         cout << email.getReceived() << endl;
+        return 0;
     }
-    else if(part == "date" || part == "Date")
+    else if (toLower(part) == "date")
     {
         cout << email.getDate() << endl;
+        return 0;
     }
-    else if (part == "from" || part == "From")
+    else if (toLower(part) == "from")
     {
         cout << email.getFrom() << endl;
+        return 0;
     }
-    else if (part == "cc" || part == "CC" || part == "Cc")
+    else if (toLower(part) == "cc")
     {
         cout << email.getCC() << endl;
+        return 0;
     }
-    else if (part == "To" || part == "to")
+    else if (toLower(part) == "to")
     {
         cout << email.getTo() << endl;
+        return 0;
     }
-    else if (part == "Message-id" || part == "message-id"|| part == "Message-ID" || part == "Message-Id")
+    else if (toLower(part) == "messageid" || toLower(part) == "message-id")
     {
         cout << email.getMessageID() << endl;
+        return 0;
     }
-    else if (part == "Subject" || part == "subject")
+    else if (toLower(part) == "subject")
     {
         cout << email.getSubject() << endl;
+        return 0;
     }
-    else if (part == "Authentication-Results" || part == "authentication-Results" || part == "authentication-results")
+    else if (toLower(part) == "authentication-results")
     {
         cout << outlook.getAuthentication() << endl;
+        return 0;
     }
-    else if (part == "Content-Transfer-Encoding" || part == "content-transfer-encoding" || part == "Content-transfer-encoding")
+    else if (toLower(part) == "content-transfer-encoding")
     {
         cout << outlook.getContentTr() << endl;
+        return 0;
     }
-    else if (part == "Thread-Topic" || part == "thread-topic" || part == "thread-Topic")
+    else if (toLower(part) == "thread-topic")
     {
         cout << outlook.getThreadTopic() << endl;
+        return 0;
     }
-    else if (part == "Thread-Index" || part == "thread-index" || part == "thread-Index")
+    else if (toLower(part) == "thread-index")
     {
         cout << outlook.getThreadIndex() << endl;
+        return 0;
     }
-    else if (part == "References" || part == "references")
+    else if (toLower(part) == "references")
     {
         cout << outlook.getReferences() << endl;
+        return 0;
     }
-    else if (part == "In-Reply-To" || part == "in-reply-to")
+    else if (toLower(part) == "in-reply-to")
     {
         cout << outlook.getInReplyTo() << endl;
+        return 0;
     }
-    else if (part == "Accept-Language" || part == "accept-language")
+    else if (toLower(part) == "accept-language")
     {
         cout << outlook.getAcceptLanguage() << endl;
+        return 0;
     }
-    else if (part == "Content-Language" || part == "content-language")
+    else if (toLower(part) == "content-language")
     {
         cout << outlook.getContentLanguage() << endl;
+        return 0;
     }
-    else if (part == "Content-Type" || part == "content-type")
+    else if (toLower(part) == "content-type")
     {
-        cout << outlook.getContentType() << endl;
+        cout << email.getContentType() << endl;
+        return 0;
     }
-    else if (part == "X-MS-Has-Attach" || part == "x-ms-has-attach")
+    else if (toLower(part) == "x-ms-has-attach")
     {
         cout << outlook.getHasAttach() << endl;
+        return 0;
     }
-    else if (part == "X-MS-Exchange-Organization-SCL" || part == "x-ms-exchange-organization-scl")
+    else if (toLower(part) == "x-ms-exchange-organization-scl")
     {
         cout << outlook.getExchange() << endl;
+        return 0;
     }
-    else if (part == "DeliveredTo" || part == "Delivered-To" || "delivered-to")
+    else if (toLower(part) == "delivered-to")
     {
-        cout << email.getDeliveredTo() << endl;
+        cout << gmail.getDeliveredTo() << endl;
+        return 0;
     }
-    else if (part == "X-Google-Smtp-Source" || part == "x-google-smtp-source")
+    
+    else if (toLower(part) == "x-google-smtp-source")
     {
         cout << email.getGoogle() << endl;
+        return 0;
     }
-    else if (part == "ReplyTo" || part == "Reply-To" || part == "reply-to")
+    else if (toLower(part) == "reply-to")
     {
         cout << email.getReplyto() << endl;
+        return 0;
     }
-    else if (part == "MIME-Version" || part == "mime-version" || part == "MIME")
+    else if (toLower(part) == "mime-version")
     {
         cout << email.getMime() << endl;
+        return 0;
     }
-    else if (part == "Content-Transfer-Encoding" || part == "content-transfer-encoding")
+    else if (toLower(part) == "content-transfer-encoding")
     {
         cout << email.getCTE() << endl;
+        return 0;
     }
-    else
+    else if (!part.empty())
     {
-        "Not valid";
-    }
+    cout << "That is not valid!";
+
+ }
+    
+    
 
 
     /*
