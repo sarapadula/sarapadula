@@ -1,0 +1,111 @@
+INPUT:tell me everything
+OUTPUT:
+Name: Shedron D. Williams
+Region: Beaufort, Hampton, & Jasper
+Columbia Address: 432D Blatt Bldg.
+Home Address: P.O. Box 267 Hampton 29924
+Business Phone: (803) 212-6974
+Home Phone: (803)914-1242
+Eduction: Morehouse College, B.S., Public Health
+DOB: July 29, 1967
+Birth Place: Colleton County
+Spouse: Cassandra Brooks,
+Children: 4 children: Rozadeen, Winston, Tra-Von, and Kyri
+Job Experience: Hampton County Council, 2010-18
+Parents: late Rossie and Ruthie Williams
+Committee: Agriculture, Natural Resources & Environmental Affairs
+
+INPUT:tell me about the rep
+OUTPUT:
+Name: Shedron D. Williams
+Region: Beaufort, Hampton, & Jasper
+Eduction: Morehouse College, B.S., Public Health
+DOB: July 29, 1967
+Birth Place: Colleton County
+Spouse: Cassandra Brooks,
+Children: 4 children: Rozadeen, Winston, Tra-Von, and Kyri
+Job Experience: Hampton County Council, 2010-18
+Parents: late Rossie and Ruthie Williams
+
+INPUT:how do I contact the rep
+OUTPUT:
+Columbia Address: 432D Blatt Bldg.
+Home Address: P.O. Box 267 Hampton 29924
+Business Phone: (803) 212-6974
+Home Phone: (803)914-1242
+
+INPUT:what is the rep name
+OUTPUT:
+Shedron D. Williams
+
+INPUT: what region does the rep work in
+OUTPUT: 
+Beaufort, Hampton, & Jasper
+
+INPUT: what is their columbia address
+OUPUT:
+432D Blatt Bldg.
+
+INPUT:tell me their home address
+OUTPUT:
+P.O. Box 267 Hampton 29924
+
+INPUT:what is their address
+OUTPUT:
+Columbia Address: 432D Blatt Bldg.
+Home Address: P.O. Box 267 Hampton 29924
+
+INPUT: what is their alma mater
+OUTPUT:
+Morehouse College, B.S., Public Health
+
+INPUT:where did they go to school
+OUTPUT:
+Morehouse College, B.S., Public Health
+
+INPUT:when is their birthday
+OUTPUT:
+July 29, 1967
+
+INPUT:where is the rep from
+OUTPUT:
+Colleton County
+
+INPUT:who are they married to
+OUTPUT:
+Cassandra Brooks,
+
+INPUT:who are their children
+OUTPUT:
+4 children: Rozadeen, Winston, Tra-Von, and Kyri
+
+INPUT:who are their parents
+OUTPUT:
+late Rossie and Ruthie Williams
+
+INPUT:tell me about their family
+OUTPUT:
+Parents: late Rossie and Ruthie Williams
+4 children: Rozadeen, Winston, Tra-Von, and Kyri
+Spouse: Cassandra Brooks,
+
+INPUT: representative job experience
+OUTPUT:
+Hampton County Council, 2010-18
+
+INPUT:what committees is the repo on
+OUTPUT:
+Agriculture, Natural Resources & Environmental Affairs
+
+INPUT:quit
+OUTPUT:
+Goodbye
+
+INPUT: blahblah
+OUTPUT:
+Invalid entry or we do not have that information. Try again.
+
+
+
+
+
