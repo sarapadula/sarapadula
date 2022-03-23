@@ -1,0 +1,6 @@
+﻿  Proj4.cpp
+C:\Users\User\Desktop\Visual Studio\Proj4\Proj4\Proj4.cpp(19,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Desktop\Visual Studio\Proj4\Proj4\Proj4.cpp(23,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Desktop\Visual Studio\Proj4\Proj4\Proj4.cpp(26,19): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'double', possible loss of data
+C:\Users\User\Desktop\Visual Studio\Proj4\Proj4\Proj4.cpp(27,20): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'double', possible loss of data
+  Proj4.vcxproj -> C:\Users\User\Desktop\Visual Studio\Proj4\x64\Debug\Proj4.exe
