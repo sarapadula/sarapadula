@@ -1,0 +1,16 @@
+User: name
+
+Computer: 
+Name: ShedronD.Williams
+User: kids
+
+Computer: 
+Children: 4children:Rozadeen,Winston,Tra-Von,andKyri
+User: family
+
+Computer: 
+Parents: lateRossieandRuthieWilliams
+Spouse: CassandraBrooks,
+Children: 4children:Rozadeen,Winston,Tra-Von,andKyri
+User: quit
+
