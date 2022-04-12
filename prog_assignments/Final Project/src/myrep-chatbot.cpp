@@ -387,699 +387,732 @@ public:
 
 int main()
 {
-    cout << "****** Welcome to the District 122 Information Bot ******" << endl;
-    cout << "Would you like to examine your previous chat sessions or would you like to start a new chat session?" << endl;
-    cout << "1. Examine Previous Chat Sessions" << endl;
-    cout << "2. Start a New Chat Session" << endl;
-    int answer;
-    cin >> answer;
-    if (answer == 1)
+    bool x = 1;
+    while (x = 1)
     {
-        cout << "*** Let's Examine Your Previous Chat Sessions *****" << endl;
-        cout << "Please Enter the Number of what information you would like to know." << endl;
-        cout << "1. SUMMARY OF ALL DATA" << endl;
-        cout << "2. SUMMARY OF ONE CHAT SESSION" << endl;
-        cout << "3. SHOW FULL CHAT LOG OF A CHAT SESSION" << endl;
-        int selection;
-        cin >> selection;
-
-        if (selection == 1)
+        cout << "****** Welcome to the District 122 Information Bot ******" << endl;
+        cout << "Would you like to examine your previous chat sessions or would you like to start a new chat session?" << endl;
+        cout << "1. EXAMINE PREVIOUS CHAT SESSIONS" << endl;
+        cout << "2. START A NEW CHAT SESSION" << endl;
+        cout << "3. QUIT" << endl;
+        int answer;
+        cin >> answer;
+        if (answer == 1)
         {
-            vector<ChatSession> chats;
-            ifstream inputFile;
-            inputFile.open("data\\chat_statistics.csv");
-            string line = "";
-            getline(inputFile, line);
-            line = "";
+            cout << "*** Let's Examine Your Previous Chat Sessions *****" << endl;
+            cout << "Please Enter the Number of what information you would like to know." << endl;
+            cout << "1. SUMMARY OF ALL DATA" << endl;
+            cout << "2. SUMMARY OF ONE CHAT SESSION" << endl;
+            cout << "3. SHOW FULL CHAT LOG OF A CHAT SESSION" << endl;
+            int selection;
+            cin >> selection;
 
-            while (getline(inputFile, line))
+            if (selection == 1)
             {
-                int chatId;
-                string chatFile;
-                int userCount;
-                int compCount;
-                int time;
-                string tempString = "";
-
-
-
-                stringstream inputString(line);
-
-                getline(inputString, tempString, ',');
-                chatId = atoi(tempString.c_str());
-                getline(inputString, chatFile, ',');
-                tempString = "";
-                getline(inputString, tempString, ',');
-                userCount = atoi(tempString.c_str());
-                tempString = "";
-                getline(inputString, tempString, ',');
-                compCount = atoi(tempString.c_str());
-                tempString = "";
-                getline(inputString, tempString, ',');
-                time = atoi(tempString.c_str());
-
-
-                ChatSession chat(chatId, chatFile, userCount, compCount, time);
-                chats.push_back(chat);
-
+                vector<ChatSession> chats;
+                ifstream inputFile;
+                inputFile.open("data\\chat_statistics.csv");
+                string line = "";
+                getline(inputFile, line);
                 line = "";
-            }
-            int numberOfUsers = 0;
-            int numberOfComps = 0;
-            int timeElapsed = 0;
-            for (auto chat : chats)
-            {
-                numberOfUsers = numberOfUsers + chat.User;
-                numberOfComps = numberOfComps + chat.Comp;
-                timeElapsed = timeElapsed + chat.Time;
 
-            }
-            cout << "Total Number Of User Chats: " << numberOfUsers << endl;
-            cout << "Total Number Of Computer Chats: " << numberOfComps << endl;
-            cout << "Total Time Elapsed: " << timeElapsed << " Seconds" << endl;
-
-        }
-        else if (selection == 2)
-        {
-            cout << "What Chat Session would you like a summary of?" << endl;
-            int chatsession = 0;
-            cin >> chatsession;
-            vector<ChatSession> chats;
-            ifstream inputFile;
-            inputFile.open("data\\chat_statistics.csv");
-            string line = "";
-            getline(inputFile, line);
-            line = "";
-
-            while (getline(inputFile, line))
-            {
-                int chatId;
-                string chatFile;
-                int userCount;
-                int compCount;
-                int time;
-                string tempString = "";
-
-
-
-                stringstream inputString(line);
-
-                getline(inputString, tempString, ',');
-                chatId = atoi(tempString.c_str());
-                getline(inputString, chatFile, ',');
-                tempString = "";
-                getline(inputString, tempString, ',');
-                userCount = atoi(tempString.c_str());
-                tempString = "";
-                getline(inputString, tempString, ',');
-                compCount = atoi(tempString.c_str());
-                tempString = "";
-                getline(inputString, tempString, ',');
-                time = atoi(tempString.c_str());
-
-                ChatSession chat(chatId, chatFile, userCount, compCount, time);
-                chats.push_back(chat);
-
-                line = "";
-            }
-            cout << "Chat ID: " << chats[chatsession].ChatId << endl;
-            cout << "Chat File: " << chats[chatsession].ChatFile << endl;
-            cout << "User Chats: " << chats[chatsession].User << endl;
-            cout << "Computer Chats: " << chats[chatsession].Comp << endl;
-            cout << "Time Elapsed: " << chats[chatsession].Time << " Seconds" << endl;
-            //auto pred = [chatsession](const ChatSession& item)
-           // {
-           //     return item.ChatId == chatsession;
-           // };
-
-          //find_if (begin(chats), end(chats), pred) != end(chats);
-
-
-
-
-        }
-        else if (selection == 3)
-        {
-            vector<ChatSession> chats;
-            ifstream inputFile;
-            inputFile.open("data\\chat_statistics.csv");
-            string line = "";
-            getline(inputFile, line);
-            line = "";
-
-            while (getline(inputFile, line))
-            {
-                int chatId;
-                string chatFile;
-                int userCount;
-                int compCount;
-                int time;
-                string tempString = "";
-
-
-
-                stringstream inputString(line);
-
-                getline(inputString, tempString, ',');
-                chatId = atoi(tempString.c_str());
-                getline(inputString, chatFile, ',');
-                tempString = "";
-                getline(inputString, tempString, ',');
-                userCount = atoi(tempString.c_str());
-                tempString = "";
-                getline(inputString, tempString, ',');
-                compCount = atoi(tempString.c_str());
-                tempString = "";
-                getline(inputString, tempString, ',');
-                time = atoi(tempString.c_str());
-
-                ChatSession chat(chatId, chatFile, userCount, compCount, time);
-                chats.push_back(chat);
-
-                line = "";
-            }
-            int session = 0;
-            cout << "What chat session would you like to see the full chat log of?" << endl;
-            cin >> session;
-            string x;
-            ifstream inFile;
-            inFile.open(chats[session].ChatFile);
-            if (!inFile)
-            {
-                cout << "Unable to open file";
-                exit(1);
-            }
-
-            while (inFile >> x)
-            {
-                cout << x << endl;
-            }
-
-            inFile.close();
-
-        }
-        else
-        {
-            cout << "That is not valid" << endl;
-            return 0;
-        }
-
-    }
-    else if (answer == 2)
-    {
-
-        int userUtter = 0;
-        int compUtter = 0;
-        string year;
-        string month;
-        string day;
-        string hour;
-        string min;
-        cout << "***** Welcome to the District 122 Information Bot *******" << endl;
-        cout << "What is the year?" << endl;
-        cin >> year;
-        cout << "What is the month?" << endl;
-        cin >> month;
-        cout << "What is the day?" << endl;
-        cin >> day;
-        cout << "What is the hour?" << endl;
-        cin >> hour;
-        cout << "What is the minutes?" << endl;
-        cin >> min;
-
-        string fullstring = year + "_" + month + "_" + day + "_" + hour + "_" + min;
-
-
-        string filename = fullstring;
-        ofstream sessionFile;
-        sessionFile.open((("data\\chat_sessions\\" + filename + ".txt").c_str()), ios::app);
-        vector<string> str;
-        string countname = "data\\count.txt";
-        ofstream countfile;
-        countfile.open(countname, ios::app);
-        int count = 1;
-        countfile << count << "\n";
-
-
-        fstream myfile("data\\output.txt");
-
-        string line;
-
-
-        if (myfile.is_open())
-        {
-
-            while (myfile >> line)
-            {
-                str.push_back(line);
-            }
-            cout << endl;
-
-            myfile.close();
-        }
-        cout << "******* Welcome to the SC District Chat Bot *******" << endl;
-        int i = 1;
-        while (i == 1)
-        {
-            string input = "";
-            cout << endl;
-            cout << "What would you like to know about the representative of district 122?" << endl;
-            cout << "Enter 'quit' or 'q' to exit the program." << endl;
-            clock_t start;
-            clock_t end;
-            start = clock();
-
-            cout << endl;
-            cout << endl;
-
-            while (getline(cin, line))
-            {
-                input = input + line;
-
-                if (cin.peek() == '\n')
+                while (getline(inputFile, line))
                 {
+                    int chatId;
+                    string chatFile;
+                    int userCount;
+                    int compCount;
+                    int time;
+                    string tempString = "";
 
-                    break;
+
+
+                    stringstream inputString(line);
+
+                    getline(inputString, tempString, ',');
+                    chatId = atoi(tempString.c_str());
+                    getline(inputString, chatFile, ',');
+                    tempString = "";
+                    getline(inputString, tempString, ',');
+                    userCount = atoi(tempString.c_str());
+                    tempString = "";
+                    getline(inputString, tempString, ',');
+                    compCount = atoi(tempString.c_str());
+                    tempString = "";
+                    getline(inputString, tempString, ',');
+                    time = atoi(tempString.c_str());
+
+
+                    ChatSession chat(chatId, chatFile, userCount, compCount, time);
+                    chats.push_back(chat);
+
+                    line = "";
+                }
+                int numberOfUsers = 0;
+                int numberOfComps = 0;
+                int timeElapsed = 0;
+                for (auto chat : chats)
+                {
+                    numberOfUsers = numberOfUsers + chat.User;
+                    numberOfComps = numberOfComps + chat.Comp;
+                    timeElapsed = timeElapsed + chat.Time;
+
+                }
+                cout << "Total Number Of User Chats: " << numberOfUsers << endl;
+                cout << "Total Number Of Computer Chats: " << numberOfComps << endl;
+                cout << "Total Time Elapsed: " << timeElapsed << " Seconds" << endl;
+
+            }
+            else if (selection == 2)
+            {
+                cout << "What Chat Session would you like a summary of?" << endl;
+                int chatsession = 0;
+                cin >> chatsession;
+                vector<ChatSession> chats;
+                ifstream inputFile;
+                inputFile.open("data\\chat_statistics.csv");
+                string line = "";
+                getline(inputFile, line);
+                line = "";
+
+                while (getline(inputFile, line))
+                {
+                    int chatId;
+                    string chatFile;
+                    int userCount;
+                    int compCount;
+                    int time;
+                    string tempString = "";
+
+
+
+                    stringstream inputString(line);
+
+                    getline(inputString, tempString, ',');
+                    chatId = atoi(tempString.c_str());
+                    getline(inputString, chatFile, ',');
+                    tempString = "";
+                    getline(inputString, tempString, ',');
+                    userCount = atoi(tempString.c_str());
+                    tempString = "";
+                    getline(inputString, tempString, ',');
+                    compCount = atoi(tempString.c_str());
+                    tempString = "";
+                    getline(inputString, tempString, ',');
+                    time = atoi(tempString.c_str());
+
+                    ChatSession chat(chatId, chatFile, userCount, compCount, time);
+                    chats.push_back(chat);
+
+                    line = "";
+                }
+                chatsession = chatsession + 1;
+                cout << "Chat ID: " << chats[chatsession].ChatId << endl;
+                cout << "Chat File: " << chats[chatsession].ChatFile << endl;
+                cout << "User Chats: " << chats[chatsession].User << endl;
+                cout << "Computer Chats: " << chats[chatsession].Comp << endl;
+                cout << "Time Elapsed: " << chats[chatsession].Time << " Seconds" << endl;
+                //auto pred = [chatsession](const ChatSession& item)
+               // {
+               //     return item.ChatId == chatsession;
+               // };
+
+              //find_if (begin(chats), end(chats), pred) != end(chats);
+
+
+
+
+            }
+            else if (selection == 3)
+            {
+                vector<ChatSession> chats;
+                ifstream inputFile;
+                inputFile.open("data\\chat_statistics.csv");
+                string line = "";
+                getline(inputFile, line);
+                line = "";
+
+                while (getline(inputFile, line))
+                {
+                    int chatId;
+                    string chatFile;
+                    int userCount;
+                    int compCount;
+                    int time;
+                    string tempString = "";
+
+
+
+                    stringstream inputString(line);
+
+                    getline(inputString, tempString, ',');
+                    chatId = atoi(tempString.c_str());
+                    getline(inputString, chatFile, ',');
+                    tempString = "";
+                    getline(inputString, tempString, ',');
+                    userCount = atoi(tempString.c_str());
+                    tempString = "";
+                    getline(inputString, tempString, ',');
+                    compCount = atoi(tempString.c_str());
+                    tempString = "";
+                    getline(inputString, tempString, ',');
+                    time = atoi(tempString.c_str());
+
+                    ChatSession chat(chatId, chatFile, userCount, compCount, time);
+                    chats.push_back(chat);
+
+                    line = "";
+                }
+                int session = 0;
+                cout << "What chat session would you like to see the full chat log of?" << endl;
+                cin >> session;
+                string x;
+                ifstream inFile;
+                inFile.open(chats[session].ChatFile);
+                if (!inFile)
+                {
+                    cout << "Unable to open file";
+                    exit(1);
+                }
+
+                while (inFile >> x)
+                {
+                    cout << x << endl;
+                }
+
+                inFile.close();
+
+
+
+            }
+            else
+            {
+                cout << "That is not valid" << endl;
+                return 0;
+            }
+
+        }
+
+        else if (answer == 2)
+        {
+
+            int userUtter = 0;
+            int compUtter = 0;
+            string year;
+            string month;
+            string day;
+            string hour;
+            string min;
+            cout << "***** Welcome to the District 122 Information Bot *******" << endl;
+            cout << "What is the year?" << endl;
+            cin >> year;
+            cout << "What is the month?" << endl;
+            cin >> month;
+            cout << "What is the day?" << endl;
+            cin >> day;
+            cout << "What is the hour?" << endl;
+            cin >> hour;
+            cout << "What is the minutes?" << endl;
+            cin >> min;
+
+            string fullstring = year + "_" + month + "_" + day + "_" + hour + "_" + min;
+
+
+            string filename = fullstring;
+            ofstream sessionFile;
+            sessionFile.open((("data\\chat_sessions\\" + filename + ".txt").c_str()), ios::app);
+            vector<string> str;
+            string countname = "data\\count.txt";
+            ofstream countfile;
+            countfile.open(countname, ios::app);
+            int count = 1;
+            countfile << count << "\n";
+
+
+            fstream myfile("data\\output.txt");
+
+            string line;
+
+
+            if (myfile.is_open())
+            {
+
+                while (myfile >> line)
+                {
+                    str.push_back(line);
+                }
+                cout << endl;
+
+                myfile.close();
+            }
+            cout << "******* Welcome to the SC District Chat Bot *******" << endl;
+            int i = 1;
+            while (i == 1)
+            {
+                string input = "";
+                cout << endl;
+                cout << "What would you like to know about the representative of district 122?" << endl;
+                cout << "Enter 'quit' or 'q' to exit the program." << endl;
+                clock_t start;
+                clock_t end;
+                start = clock();
+
+                cout << endl;
+                cout << endl;
+
+                while (getline(cin, line))
+                {
+                    input = input + line;
+
+                    if (cin.peek() == '\n')
+                    {
+
+                        break;
+                    }
+
+
+                }
+                userUtter++;
+                sessionFile << "User: " << input << "\n" << "\n";
+                cout << endl;
+
+                if (compareString(toLower(input), "tell me everything") > 70 || compareString(toLower(input), "tell me all information") > 70 || compareString(toLower(input), "everything") > 70 || compareString(toLower(input), "all information") > 70 || compareString(toLower(input), "i want to know all information") > 70 || compareString(toLower(input), "i want to know all everything") > 70)
+                {
+                    cout << "Name: ";
+                    name(str);
+                    cout << endl;
+
+                    cout << "Region: ";
+                    region(str);
+                    cout << endl;
+
+                    cout << "Columbia Address: ";
+                    colaAddress(str);
+                    cout << endl;
+
+                    cout << "Home Address: ";
+                    homeAddress(str);
+                    cout << endl;
+
+                    cout << "Business Phone: ";
+                    bPhone(str);
+                    cout << endl;
+
+                    cout << "Home Phone: ";
+                    hPhone(str);
+                    cout << endl;
+
+                    cout << "Eduction: ";
+                    college(str);
+                    cout << endl;
+
+                    cout << "DOB: ";
+                    dob(str);
+                    cout << endl;
+
+                    cout << "Birth Place: ";
+                    birthPlace(str);
+                    cout << endl;
+
+                    cout << "Spouse: ";
+                    wife(str);
+                    cout << endl;
+
+                    cout << "Children: ";
+                    kids(str);
+                    cout << endl;
+
+                    cout << "Job Experience: ";
+                    experience(str);
+                    cout << endl;
+
+                    cout << "Parents: ";
+                    parents(str);
+                    cout << endl;
+
+                    cout << "Committee: ";
+                    committee(str);
+                    cout << endl;
+
+                    input = "";
+                    compUtter++;
+
+
+
+                    sessionFile << "Computer: " << "\n" << "Name: " << returnName(str) << "\n";
+                    sessionFile << "Region: " << returnRegion(str) << "\n";
+                    sessionFile << "Colmbia Address: " << returnColaAddress(str) << "\n";
+                    sessionFile << "Home Address: " << returnHomeAddress(str) << "\n";
+                    sessionFile << "Business Phone: " << returnBPhone(str) << "\n";
+                    sessionFile << "Home Phone: " << returnHPhone(str) << "\n";
+                    sessionFile << "Education: " << returnCollege(str) << "\n";
+                    sessionFile << "DOB: " << returnDob(str) << "\n";
+                    sessionFile << "Birth Place: " << returnBirthPlace(str) << "\n";
+                    sessionFile << "Spouse: " << returnWife(str) << "\n";
+                    sessionFile << "Children: " << returnKids(str) << "\n";
+                    sessionFile << "Job Experience: " << returnExperience(str) << "\n";
+                    sessionFile << "Parents: " << returnParents(str) << "\n";
+                    sessionFile << "Committee: " << returnCommittee(str) << "\n" << "\n";
+                    continue;
+                }
+                else if (compareString(toLower(input), "tell me about the rep") > 70 || compareString(toLower(input), "tell me about the representative") > 70 || compareString(toLower(input), "personal information") > 70 || compareString(toLower(input), "i want to know about the rep") > 70 || compareString(toLower(input), "i want to know about the representative") > 70 || compareString(toLower(input), "tell me personal information") > 70 || compareString(toLower(input), "tell me personal info") > 70)
+                {
+                    cout << "Name: ";
+                    name(str);
+                    cout << endl;
+
+                    cout << "Region: ";
+                    region(str);
+                    cout << endl;
+
+                    cout << "Eduction: ";
+                    college(str);
+                    cout << endl;
+
+                    cout << "DOB: ";
+                    dob(str);
+                    cout << endl;
+
+                    cout << "Birth Place: ";
+                    birthPlace(str);
+                    cout << endl;
+
+                    cout << "Spouse: ";
+                    wife(str);
+                    cout << endl;
+
+                    cout << "Children: ";
+                    kids(str);
+                    cout << endl;
+
+                    cout << "Job Experience: ";
+                    experience(str);
+                    cout << endl;
+
+                    cout << "Parents: ";
+                    parents(str);
+                    cout << endl;
+
+                    compUtter++;
+
+                    sessionFile << "Computer: " << "\n" << "Name: " << returnName(str) << "\n";
+                    sessionFile << "Region: " << returnRegion(str) << "\n";
+                    sessionFile << "Education: " << returnCollege(str) << "\n";
+                    sessionFile << "DOB: " << returnDob(str) << "\n";
+                    sessionFile << "Birth Place: " << returnBirthPlace(str) << "\n";
+                    sessionFile << "Spouse: " << returnWife(str) << "\n";
+                    sessionFile << "Children: " << returnKids(str) << "\n";
+                    sessionFile << "Job Experience: " << returnExperience(str) << "\n";
+                    sessionFile << "Parents: " << returnParents(str) << "\n" << "\n";
+
+                    continue;
+                }
+                else if (compareString(toLower(input), "contact information") > 70 || compareString(toLower(input), "how do i contact my rep") > 70 || compareString(toLower(input), "how do i contact the rep") > 70 || compareString(toLower(input), "how do i contact my representative") > 70 || compareString(toLower(input), "tell me contact info") > 70 || compareString(toLower(input), "tell me contact information") > 70 || compareString(toLower(input), "tell me how to contact my rep") > 70 || compareString(toLower(input), "contact info") > 70 || compareString(toLower(input), "contact the rep") > 70)
+                {
+                    cout << "Columbia Address: ";
+                    colaAddress(str);
+                    cout << endl;
+
+                    cout << "Home Address: ";
+                    homeAddress(str);
+                    cout << endl;
+
+                    cout << "Business Phone: ";
+                    bPhone(str);
+                    cout << endl;
+
+                    cout << "Home Phone: ";
+                    hPhone(str);
+                    cout << endl;
+
+                    compUtter++;
+                    sessionFile << "Computer: " << "\n" << "Columbia Address: " << returnColaAddress(str) << "\n";
+                    sessionFile << "Home Address: " << returnHomeAddress(str) << "\n";
+                    sessionFile << "Business Phone: " << returnBPhone(str) << "\n";
+                    sessionFile << "Home Phone: " << returnHPhone(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "home phone number") > 70 || compareString(toLower(input), "home phone") > 70 || compareString(toLower(input), "what is their home phone number") > 70)
+                {
+                    cout << "Home Phone: ";
+                    hPhone(str);
+                    cout << endl;
+
+                    compUtter++;
+                    sessionFile << "Computer: " << "\n";
+                    sessionFile << "Home Phone: " << returnHPhone(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "businesss phone number") > 70 || compareString(toLower(input), "business phone") > 70 || compareString(toLower(input), "what is their business phone number") > 70)
+                {
+                    cout << "Business Phone: ";
+                    bPhone(str);
+                    cout << endl;
+
+                    compUtter++;
+                    sessionFile << "Computer: " << "\n";
+                    sessionFile << "Business Phone: " << returnBPhone(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "phone number") > 70 || compareString(toLower(input), "phone") > 70 || compareString(toLower(input), "what is their phone number") > 70)
+                {
+                    cout << "Business Phone: ";
+                    bPhone(str);
+                    cout << endl;
+
+                    cout << "Home Phone: ";
+                    hPhone(str);
+                    cout << endl;
+
+                    compUtter++;
+                    sessionFile << "Computer: " << "\n";
+                    sessionFile << "Business Phone: " << returnBPhone(str) << "\n";
+                    sessionFile << "Home Phone: " << returnHPhone(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "what district do you support for q/a") > 70 || compareString(toLower(input), "what district does the chatbot support") > 70 || compareString(toLower(input), "rep district") > 70)
+                {
+                cout << "District 122";
+                cout << endl;
+
+                name(str);
+                cout << endl;
+                
+
+                compUtter++;
+                sessionFile << "Computer: " << "\n";
+                sessionFile << "District 122" << "\n";
+                sessionFile << returnName(str) << "\n" << "\n";
+
+                continue;
+
+                }
+
+                else if (compareString(toLower(input), "name") > 70 || compareString(toLower(input), "tell me the rep name") > 70 || compareString(toLower(input), "tell me the repo name") > 70 || compareString(toLower(input), "tell me the representative name") > 70 || compareString(toLower(input), "what is the rep name") > 70 || compareString(toLower(input), "what is the representative name") > 70 || compareString(toLower(input), "what is the repo name") > 70 || compareString(toLower(input), "what is their name") > 70 || compareString(toLower(input), "tell me their name") > 70)
+                {
+                    name(str);
+                    cout << endl;
+
+                    compUtter++;
+
+                    sessionFile << "Computer: " << "\n" << "Name: " << returnName(str) << "\n" << "\n";
+
+                    continue;
+
+
+
+                }
+                else if (compareString(toLower(input), "region") > 70 || compareString(toLower(input), "tell me the rep region") > 70 || compareString(toLower(input), "tell me the repo region") > 70 || compareString(toLower(input), "tell me the representative region") > 70 || compareString(toLower(input), "what region does the rep work in") > 70 || compareString(toLower(input), "what region does the repo work in") > 70 || compareString(toLower(input), "region they represent") > 70 || compareString(toLower(input), "what region do they represent") > 70 )
+
+
+                {
+                    region(str);
+                    cout << endl;
+                    compUtter++;
+                    sessionFile << "Computer: " << "\n" << "Region: " << returnRegion(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "columbia address") > 70 || compareString(toLower(input), "tell me their columbia address") > 70 || compareString(toLower(input), "what is their columbia address") > 70 || compareString(toLower(input), "what is their cola address") > 70 || compareString(toLower(input), "tell me their cola address") > 70 || compareString(toLower(input), "what is the rep columbia address") > 70 || compareString(toLower(input), "what is the representative columbia address") > 70 || compareString(toLower(input), "where are they in columbia") > 70 || compareString(toLower(input), "where are they in cola") > 70)
+                {
+                    colaAddress(str);
+                    cout << endl;
+                    compUtter++;
+                    sessionFile << "Computer: " << "\n" << "Colmbia Address: " << returnColaAddress(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "home address") > 70 || compareString(toLower(input), "tell me their home address") > 70 || compareString(toLower(input), "what is their home address") > 70 || compareString(toLower(input), "tell me their home address") > 70 || compareString(toLower(input), "what is the rep home address") > 70 || compareString(toLower(input), "what is the representative home address") > 70 || compareString(toLower(input), "tell me the rep home address") > 70 || compareString(toLower(input), "tll me the representative home address") > 70 || compareString(toLower(input), "where do they live") > 70 || compareString(toLower(input), "where does the rep live") > 70)
+                {
+                    homeAddress(str);
+                    cout << endl;
+                    compUtter++;
+                    sessionFile << "Computer: " << "\n" << "Home Address: " << returnHomeAddress(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "address") > 70 || compareString(toLower(input), "tell me their address") > 70 || compareString(toLower(input), "what is their address") > 70 || compareString(toLower(input), "what is the rep address") > 70 || compareString(toLower(input), "tell me the rep address") > 70 || compareString(toLower(input), "tell me the representative address") > 70 || compareString(toLower(input), "where can i find them") > 70 || compareString(toLower(input), "where can i send them mail") > 70 || compareString(toLower(input), "where can i send them a letter") > 70)
+                {
+                    cout << "Columbia Address: ";
+                    colaAddress(str);
+                    cout << endl;
+
+                    cout << "Home Address: ";
+                    homeAddress(str);
+                    cout << endl;
+                    compUtter++;
+                    sessionFile << "Computer: " << "\n" << "Colmbia Address: " << returnColaAddress(str) << "\n";
+                    sessionFile << "Home Address: " << returnHomeAddress(str) << "\n" << "\n";
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "alma mater") > 70 || compareString(toLower(input), "tell me their alma mater") > 70 || compareString(toLower(input), "what is their alma mater") > 70 || compareString(toLower(input), "tell me their educational background") > 70 || compareString(toLower(input), "what is their educational background") > 70 || compareString(toLower(input), "where did they go to college") > 70 || compareString(toLower(input), "where did the rep go to college") > 70 || compareString(toLower(input), "where did the representative go to college") > 70 || compareString(toLower(input), "representative alma mater") > 70)
+
+                {
+                    college(str);
+                    cout << endl;
+                    compUtter++;
+
+                    sessionFile << "Education: " << returnCollege(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "college") > 70 || compareString(toLower(input), "university") > 70 || compareString(toLower(input), "representative college") > 70 || compareString(toLower(input), "where did they go to school") > 70 || compareString(toLower(input), "tell me where they went to school") > 70 || compareString(toLower(input), "where did the rep go to school") > 70 || compareString(toLower(input), "tell me where the rep went to school") > 70 || compareString(toLower(input), "representative educational background") > 70)
+
+                {
+                    college(str);
+                    cout << endl;
+                    compUtter++;
+                    sessionFile << "Education: " << returnCollege(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "birthday") > 70 || compareString(toLower(input), "date of birth") > 70 || compareString(toLower(input), "dob") > 70 || compareString(toLower(input), "when is their birthday") > 70 || compareString(toLower(input), "when were they born") > 70 || compareString(toLower(input), "when was the rep born") > 70 || compareString(toLower(input), "when was the representative born") > 70 || compareString(toLower(input), "what is their date of birth") > 70 || compareString(toLower(input), "what is their dob") > 70)
+                {
+                    dob(str);
+                    cout << endl;
+                    compUtter++;
+                    sessionFile << "Computer: " << "\n" << "DOB: " << returnDob(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "birthplace") > 70 || compareString(toLower(input), "birth place") > 70 || compareString(toLower(input), "where are they from") > 70 || compareString(toLower(input), "where is the representative from") > 70 || compareString(toLower(input), "where is the rep from") > 70 || compareString(toLower(input), "where is the repo from") > 70 || compareString(toLower(input), "where were they born") > 70 || compareString(toLower(input), "where was the rep born") > 70 || compareString(toLower(input), "where was the representative born") > 70)
+                {
+                    birthPlace(str);
+                    cout << endl;
+                    compUtter++;
+                    sessionFile << "Computer: " << "\n" << "Birth Place: " << returnBirthPlace(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "spouse") > 70 || compareString(toLower(input), "wife") > 70 || compareString(toLower(input), "are they married") > 70 || compareString(toLower(input), "who are they married to") > 70 || compareString(toLower(input), "who is their spouse") > 70 || compareString(toLower(input), "representative spouse") > 70 || compareString(toLower(input), "rep spouse") > 70 || compareString(toLower(input), "representative wife") > 70 || compareString(toLower(input), "rep wife") > 70)
+                {
+                    wife(str);
+                    cout << endl;
+                    compUtter++;
+                    sessionFile << "Computer: " << "\n" << "Spouse: " << returnWife(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "kids") > 70 || compareString(toLower(input), "children") > 70 || compareString(toLower(input), "do they have kids") > 70 || compareString(toLower(input), "do they have children") > 70 || compareString(toLower(input), "who are their kids") > 70 || compareString(toLower(input), "does the rep have kids") > 70 || compareString(toLower(input), "does the representative have kids") > 70 || compareString(toLower(input), "does he have kids") > 70 || compareString(toLower(input), "who are his kids") > 70)
+
+                {
+                    kids(str);
+                    cout << endl;
+                    compUtter++;
+
+                    sessionFile << "Computer: " << "\n" << "Children: " << returnKids(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "parents") > 70 || compareString(toLower(input), "who are their parents") > 70 || compareString(toLower(input), "rep parents") > 70 || compareString(toLower(input), "representative parents") > 70 || compareString(toLower(input), "tell me the rep parents") > 70 || compareString(toLower(input), "tell me the representative parents") > 70)
+                {
+                    parents(str);
+                    cout << endl;
+                    compUtter++;
+                    sessionFile << "Computer: " << "\n" << "Parents: " << returnParents(str) << "\n" << "\n";
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "family") > 70 || compareString(toLower(input), "tell me about their family") > 70 || compareString(toLower(input), "rep family") > 70 || compareString(toLower(input), "representative family") > 70 || compareString(toLower(input), "who is their family") > 70 || compareString(toLower(input), "tell me about his family") > 70 || compareString(toLower(input), "who is his family") > 70 || compareString(toLower(input), "their family") > 70 || compareString(toLower(input), "tell me about rep family") > 70)
+                {
+                    cout << "Parents: ";
+                    parents(str);
+                    cout << endl;
+                    cout << "Children: ";
+                    kids(str);
+                    cout << endl;
+                    cout << "Spouse: ";
+                    wife(str);
+                    cout << endl;
+                    compUtter++;
+
+                    sessionFile << "Computer: " << "\n" << "Parents: " << returnParents(str) << "\n";
+                    sessionFile << "Spouse: " << returnWife(str) << "\n";
+                    sessionFile << "Children: " << returnKids(str) << "\n" << "\n";
+
+
+                    continue;
+
+                }
+                else if (compareString(toLower(input), "job experience") > 70 || compareString(toLower(input), "work experience") > 70 || compareString(toLower(input), "where did they work") > 70 || compareString(toLower(input), "representative job experience") > 70 || compareString(toLower(input), "rep job experience") > 70 || compareString(toLower(input), "where did the rep work") > 70 || compareString(toLower(input), "where did the representative work") > 70 || compareString(toLower(input), "rep work experience") > 70 || compareString(toLower(input), "representative work experience") > 70)
+                {
+                    experience(str);
+                    cout << endl;
+                    compUtter++;
+
+                    sessionFile << "Computer: " << "\n" << "Job Experience: " << returnExperience(str) << "\n" << "\n";
+
+                    continue;
+                }
+                else if (compareString(toLower(input), "what committees is the repo on") > 70 || compareString(toLower(input), "what committees is the rep on") > 70 || compareString(toLower(input), "what committees is the representative on") > 70 || compareString(toLower(input), "committee assignments") > 70 || compareString(toLower(input), "what committees are they on") > 70 || compareString(toLower(input), "rep committee assignments") > 70 || compareString(toLower(input), "what committees are they on") > 70 || compareString(toLower(input), "representative committees") > 70 || compareString(toLower(input), "rep committees") > 70)
+
+                {
+                    committee(str);
+                    cout << endl;
+                    compUtter++;
+
+                    sessionFile << "Computer: " << "\n" << "Committee: " << returnCommittee(str) << "\n" << "\n";
+
+
+                    continue;
+                }
+
+                else if (compareString(toLower(input), "quit") > 70 || compareString(toLower(input), "q") > 70)
+                {
+                    end = clock();
+
+                    // Calculating total time taken by the program.
+                    double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+                    cout << "Time taken by program is : " << fixed
+                        << time_taken << setprecision(5);
+                    cout << " sec " << endl;
+                    cout << "Goodbye";
+                    create(userUtter, compUtter, time_taken, "data\\chat_sessions\\" + filename + ".txt", countname);
+                    i = 0;
+                    return 0;
+                }
+                else if (!input.empty())
+                {
+                    cout << "Invalid entry or we do not have that information. Try again." << endl;
+
+
+                    continue;
                 }
 
 
-            }
-            userUtter++;
-            sessionFile << "User: " << input << "\n" << "\n";
-            cout << endl;
-
-            if (compareString(toLower(input), "tell me everything") > 70 || compareString(toLower(input), "tell me all information") > 70 || compareString(toLower(input), "everything") > 70 || compareString(toLower(input), "all information") > 70 || compareString(toLower(input), "i want to know all information") > 70 || compareString(toLower(input), "i want to know all everything") > 70)
-            {
-                cout << "Name: ";
-                name(str);
-                cout << endl;
-
-                cout << "Region: ";
-                region(str);
-                cout << endl;
-
-                cout << "Columbia Address: ";
-                colaAddress(str);
-                cout << endl;
-
-                cout << "Home Address: ";
-                homeAddress(str);
-                cout << endl;
-
-                cout << "Business Phone: ";
-                bPhone(str);
-                cout << endl;
-
-                cout << "Home Phone: ";
-                hPhone(str);
-                cout << endl;
-
-                cout << "Eduction: ";
-                college(str);
-                cout << endl;
-
-                cout << "DOB: ";
-                dob(str);
-                cout << endl;
-
-                cout << "Birth Place: ";
-                birthPlace(str);
-                cout << endl;
-
-                cout << "Spouse: ";
-                wife(str);
-                cout << endl;
-
-                cout << "Children: ";
-                kids(str);
-                cout << endl;
-
-                cout << "Job Experience: ";
-                experience(str);
-                cout << endl;
-
-                cout << "Parents: ";
-                parents(str);
-                cout << endl;
-
-                cout << "Committee: ";
-                committee(str);
-                cout << endl;
-
-                input = "";
-                compUtter++;
-
-
-
-                sessionFile << "Computer: " << "\n" << "Name: " << returnName(str) << "\n";
-                sessionFile << "Region: " << returnRegion(str) << "\n";
-                sessionFile << "Colmbia Address: " << returnColaAddress(str) << "\n";
-                sessionFile << "Home Address: " << returnHomeAddress(str) << "\n";
-                sessionFile << "Business Phone: " << returnBPhone(str) << "\n";
-                sessionFile << "Home Phone: " << returnHPhone(str) << "\n";
-                sessionFile << "Education: " << returnCollege(str) << "\n";
-                sessionFile << "DOB: " << returnDob(str) << "\n";
-                sessionFile << "Birth Place: " << returnBirthPlace(str) << "\n";
-                sessionFile << "Spouse: " << returnWife(str) << "\n";
-                sessionFile << "Children: " << returnKids(str) << "\n";
-                sessionFile << "Job Experience: " << returnExperience(str) << "\n";
-                sessionFile << "Parents: " << returnParents(str) << "\n";
-                sessionFile << "Committee: " << returnCommittee(str) << "\n";
-                continue;
-            }
-            else if (compareString(toLower(input), "tell me about the rep") > 70 || compareString(toLower(input), "tell me about the representative") > 70 || compareString(toLower(input), "personal information") > 70 || compareString(toLower(input), "i want to know about the rep") > 70 || compareString(toLower(input), "i want to know about the representative") > 70 || compareString(toLower(input), "tell me personal information") > 70 || compareString(toLower(input), "tell me personal info") > 70)
-            {
-                cout << "Name: ";
-                name(str);
-                cout << endl;
-
-                cout << "Region: ";
-                region(str);
-                cout << endl;
-
-                cout << "Eduction: ";
-                college(str);
-                cout << endl;
-
-                cout << "DOB: ";
-                dob(str);
-                cout << endl;
-
-                cout << "Birth Place: ";
-                birthPlace(str);
-                cout << endl;
-
-                cout << "Spouse: ";
-                wife(str);
-                cout << endl;
-
-                cout << "Children: ";
-                kids(str);
-                cout << endl;
-
-                cout << "Job Experience: ";
-                experience(str);
-                cout << endl;
-
-                cout << "Parents: ";
-                parents(str);
-                cout << endl;
-
-                compUtter++;
-
-                sessionFile << "Computer: " << "\n" << "Name: " << returnName(str) << "\n";
-                sessionFile << "Region: " << returnRegion(str) << "\n";
-                sessionFile << "Education: " << returnCollege(str) << "\n";
-                sessionFile << "DOB: " << returnDob(str) << "\n";
-                sessionFile << "Birth Place: " << returnBirthPlace(str) << "\n";
-                sessionFile << "Spouse: " << returnWife(str) << "\n";
-                sessionFile << "Children: " << returnKids(str) << "\n";
-                sessionFile << "Job Experience: " << returnExperience(str) << "\n";
-                sessionFile << "Parents: " << returnParents(str) << "\n";
-
-                continue;
-            }
-            else if (compareString(toLower(input), "contact information") > 70 || compareString(toLower(input), "how do i contact my rep") > 70 || compareString(toLower(input), "how do i contact the rep") > 70 || compareString(toLower(input), "how do i contact my representative") > 70 || compareString(toLower(input), "tell me contact info") > 70 || compareString(toLower(input), "tell me contact information") > 70 || compareString(toLower(input), "tell me how to contact my rep") > 70 || compareString(toLower(input), "contact info") > 70 || compareString(toLower(input), "contact the rep") > 70)
-            {
-                cout << "Columbia Address: ";
-                colaAddress(str);
-                cout << endl;
-
-                cout << "Home Address: ";
-                homeAddress(str);
-                cout << endl;
-
-                cout << "Business Phone: ";
-                bPhone(str);
-                cout << endl;
-
-                cout << "Home Phone: ";
-                hPhone(str);
-                cout << endl;
-
-                compUtter++;
-                sessionFile << "Computer: " << "\n" << "Columbia Address: " << returnColaAddress(str) << "\n";
-                sessionFile << "Home Address: " << returnHomeAddress(str) << "\n";
-                sessionFile << "Business Phone: " << returnBPhone(str) << "\n";
-                sessionFile << "Home Phone: " << returnHPhone(str) << "\n";
-
-                continue;
 
             }
-            else if (compareString(toLower(input), "home phone number") > 70 || compareString(toLower(input), "home phone") > 70 || compareString(toLower(input), "what is their home phone number") > 70)
-            {
-            cout << "Home Phone: ";
-            hPhone(str);
-            cout << endl;
-
-            compUtter++;
-            sessionFile << "Computer: " << "\n";
-            sessionFile << "Home Phone: " << returnHPhone(str) << "\n";
-
-            continue;
-
-            }
-            else if (compareString(toLower(input), "businesss phone number") > 70 || compareString(toLower(input), "business phone") > 70 || compareString(toLower(input), "what is their business phone number") > 70)
-            {
-            cout << "Business Phone: ";
-            bPhone(str);
-            cout << endl;
-
-            compUtter++;
-            sessionFile << "Computer: " << "\n";
-            sessionFile << "Business Phone: " << returnBPhone(str) << "\n";
-
-            continue;
-
-            }
-            else if (compareString(toLower(input), "phone number") > 70 || compareString(toLower(input), "phone") > 70 || compareString(toLower(input), "what is their phone number") > 70)
-            {
-            cout << "Business Phone: ";
-            bPhone(str);
-            cout << endl;
-
-            cout << "Home Phone: ";
-            hPhone(str);
-            cout << endl;
-
-            compUtter++;
-            sessionFile << "Computer: " << "\n";
-            sessionFile << "Business Phone: " << returnBPhone(str) << "\n";
-            sessionFile << "Home Phone: " << returnHPhone(str) << "\n";
-
-            continue;
-
-            }
-
-            else if (compareString(toLower(input), "name") > 70 || compareString(toLower(input), "tell me the rep name") > 70 || compareString(toLower(input), "tell me the repo name") > 70 || compareString(toLower(input), "tell me the representative name") > 70 || compareString(toLower(input), "what is the rep name") > 70 || compareString(toLower(input), "what is the representative name") > 70 || compareString(toLower(input), "what is the repo name") > 70 || compareString(toLower(input), "what is their name") > 70 || compareString(toLower(input), "tell me their name") > 70)
-            {
-                name(str);
-                cout << endl;
-
-                compUtter++;
-
-                sessionFile << "Computer: " << "\n" << "Name: " << returnName(str) << "\n";
-
-                continue;
-
-
-
-            }
-            else if (compareString(toLower(input), "region") > 70 || compareString(toLower(input), "tell me the rep region") > 70 || compareString(toLower(input), "tell me the repo region") > 70 || compareString(toLower(input), "tell me the representative region") > 70 || compareString(toLower(input), "what region does the rep work in") > 70 || compareString(toLower(input), "what region does the repo work in") > 70 || compareString(toLower(input), "region they represent") > 70 || compareString(toLower(input), "what region do they represent") > 70)
-
-
-            {
-                region(str);
-                cout << endl;
-                compUtter++;
-                sessionFile << "Computer: " << "\n" << "Region: " << returnRegion(str) << "\n";
-
-                continue;
-
-            }
-            else if (compareString(toLower(input), "columbia address") > 70 || compareString(toLower(input), "tell me their columbia address") > 70 || compareString(toLower(input), "what is their columbia address") > 70 || compareString(toLower(input), "what is their cola address") > 70 || compareString(toLower(input), "tell me their cola address") > 70 || compareString(toLower(input), "what is the rep columbia address") > 70 || compareString(toLower(input), "what is the representative columbia address") > 70 || compareString(toLower(input), "where are they in columbia") > 70 || compareString(toLower(input), "where are they in cola") > 70)
-            {
-                colaAddress(str);
-                cout << endl;
-                compUtter++;
-                sessionFile << "Computer: " << "\n" << "Colmbia Address: " << returnColaAddress(str) << "\n";
-
-                continue;
-
-            }
-            else if (compareString(toLower(input), "home address") > 70 || compareString(toLower(input), "tell me their home address") > 70 || compareString(toLower(input), "what is their home address") > 70 || compareString(toLower(input), "tell me their home address") > 70 || compareString(toLower(input), "what is the rep home address") > 70 || compareString(toLower(input), "what is the representative home address") > 70 || compareString(toLower(input), "tell me the rep home address") > 70 || compareString(toLower(input), "tll me the representative home address") > 70 || compareString(toLower(input), "where do they live") > 70)
-            {
-                homeAddress(str);
-                cout << endl;
-                compUtter++;
-                sessionFile << "Computer: " << "\n" << "Home Address: " << returnHomeAddress(str) << "\n";
-
-                continue;
-
-            }
-            else if (compareString(toLower(input), "address") > 70 || compareString(toLower(input), "tell me their address") > 70 || compareString(toLower(input), "what is their address") > 70 || compareString(toLower(input), "what is the rep address") > 70 || compareString(toLower(input), "tell me the rep address") > 70 || compareString(toLower(input), "tell me the representative address") > 70 || compareString(toLower(input), "where can i find them") > 70 || compareString(toLower(input), "where can i send them mail") > 70 || compareString(toLower(input), "where can i send them a letter") > 70)
-            {
-                cout << "Columbia Address: ";
-                colaAddress(str);
-                cout << endl;
-
-                cout << "Home Address: ";
-                homeAddress(str);
-                cout << endl;
-                compUtter++;
-                sessionFile << "Computer: " << "\n" << "Colmbia Address: " << returnColaAddress(str) << "\n";
-                sessionFile << "Home Address: " << returnHomeAddress(str) << "\n";
-                continue;
-
-            }
-            else if (compareString(toLower(input), "alma mater") > 70 || compareString(toLower(input), "tell me their alma mater") > 70 || compareString(toLower(input), "what is their alma mater") > 70 || compareString(toLower(input), "tell me their educational background") > 70 || compareString(toLower(input), "what is their educational background") > 70 || compareString(toLower(input), "where did they go to college") > 70 || compareString(toLower(input), "where did the rep go to college") > 70 || compareString(toLower(input), "where did the representative go to college") > 70 || compareString(toLower(input), "representative alma mater") > 70)
-
-            {
-                college(str);
-                cout << endl;
-                compUtter++;
-
-                sessionFile << "Education: " << returnCollege(str) << "\n";
-
-                continue;
-
-            }
-            else if (compareString(toLower(input), "college") > 70 || compareString(toLower(input), "university") > 70 || compareString(toLower(input), "representative college") > 70 || compareString(toLower(input), "where did they go to school") > 70 || compareString(toLower(input), "tell me where they went to school") > 70 || compareString(toLower(input), "where did the rep go to school") > 70 || compareString(toLower(input), "tell me where the rep went to school") > 70 || compareString(toLower(input), "representative educational background") > 70)
-
-            {
-                college(str);
-                cout << endl;
-                compUtter++;
-                sessionFile << "Education: " << returnCollege(str) << "\n";
-
-                continue;
-
-            }
-            else if (compareString(toLower(input), "birthday") > 70 || compareString(toLower(input), "date of birth") > 70 || compareString(toLower(input), "dob") > 70 || compareString(toLower(input), "when is their birthday") > 70 || compareString(toLower(input), "when were they born") > 70 || compareString(toLower(input), "when was the rep born") > 70 || compareString(toLower(input), "when was the representative born") > 70 || compareString(toLower(input), "what is their date of birth") > 70 || compareString(toLower(input), "what is their dob") > 70)
-            {
-                dob(str);
-                cout << endl;
-                compUtter++;
-                sessionFile << "Computer: " << "\n" << "DOB: " << returnDob(str) << "\n";
-
-                continue;
-
-            }
-            else if (compareString(toLower(input), "birthplace") > 70 || compareString(toLower(input), "birth place") > 70 || compareString(toLower(input), "where are they from") > 70 || compareString(toLower(input), "where is the representative from") > 70 || compareString(toLower(input), "where is the rep from") > 70 || compareString(toLower(input), "where is the repo from") > 70 || compareString(toLower(input), "where were they born") > 70 || compareString(toLower(input), "where was the rep born") > 70 || compareString(toLower(input), "where was the representative born") > 70)
-            {
-                birthPlace(str);
-                cout << endl;
-                compUtter++;
-                sessionFile << "Computer: " << "\n" << "Birth Place: " << returnBirthPlace(str) << "\n";
-
-                continue;
-
-            }
-            else if (compareString(toLower(input), "spouse") > 70 || compareString(toLower(input), "wife") > 70 || compareString(toLower(input), "are they married") > 70 || compareString(toLower(input), "who are they married to") > 70 || compareString(toLower(input), "who is their spouse") > 70 || compareString(toLower(input), "representative spouse") > 70 || compareString(toLower(input), "rep spouse") > 70 || compareString(toLower(input), "representative wife") > 70 || compareString(toLower(input), "rep wife") > 70)
-            {
-                wife(str);
-                cout << endl;
-                compUtter++;
-                sessionFile << "Computer: " << "\n" << "Spouse: " << returnWife(str) << "\n";
-
-                continue;
-
-            }
-            else if (compareString(toLower(input), "kids") > 70 || compareString(toLower(input), "children") > 70 || compareString(toLower(input), "do they have kids") > 70 || compareString(toLower(input), "do they have children") > 70 || compareString(toLower(input), "who are their kids") > 70 || compareString(toLower(input), "does the rep have kids") > 70 || compareString(toLower(input), "does the representative have kids") > 70 || compareString(toLower(input), "does he have kids") > 70 || compareString(toLower(input), "who are his kids") > 70)
-
-            {
-                kids(str);
-                cout << endl;
-                compUtter++;
-
-                sessionFile << "Computer: " << "\n" << "Children: " << returnKids(str) << "\n";
-
-                continue;
-
-            }
-            else if (compareString(toLower(input), "parents") > 70 || compareString(toLower(input), "who are their parents") > 70 || compareString(toLower(input), "rep parents") > 70 || compareString(toLower(input), "representative parents") > 70 || compareString(toLower(input), "tell me the rep parents") > 70 || compareString(toLower(input), "tell me the representative parents") > 70)
-            {
-                parents(str);
-                cout << endl;
-                compUtter++;
-                sessionFile << "Computer: " << "\n" << "Parents: " << returnParents(str) << "\n";
-
-                continue;
-
-            }
-            else if (compareString(toLower(input), "family") > 70 || compareString(toLower(input), "tell me about their family") > 70 || compareString(toLower(input), "rep family") > 70 || compareString(toLower(input), "representative family") > 70 || compareString(toLower(input), "who is their family") > 70 || compareString(toLower(input), "tell me about his family") > 70 || compareString(toLower(input), "who is his family") > 70 || compareString(toLower(input), "their family") > 70 || compareString(toLower(input), "tell me about rep family") > 70)
-            {
-                cout << "Parents: ";
-                parents(str);
-                cout << endl;
-                cout << "Children: ";
-                kids(str);
-                cout << endl;
-                cout << "Spouse: ";
-                wife(str);
-                cout << endl;
-                compUtter++;
-
-                sessionFile << "Computer: " << "\n" << "Parents: " << returnParents(str) << "\n";
-                sessionFile << "Spouse: " << returnWife(str) << "\n";
-                sessionFile << "Children: " << returnKids(str) << "\n";
-
-
-                continue;
-
-            }
-            else if (compareString(toLower(input), "job experience") > 70 || compareString(toLower(input), "work experience") > 70 || compareString(toLower(input), "where did they work") > 70 || compareString(toLower(input), "representative job experience") > 70 || compareString(toLower(input), "rep job experience") > 70 || compareString(toLower(input), "where did the rep work") > 70 || compareString(toLower(input), "where did the representative work") > 70 || compareString(toLower(input), "rep work experience") > 70 || compareString(toLower(input), "representative work experience") > 70)
-            {
-                experience(str);
-                cout << endl;
-                compUtter++;
-
-                sessionFile << "Computer: " << "\n" << "Job Experience: " << returnExperience(str) << "\n";
-
-                continue;
-            }
-            else if (compareString(toLower(input), "what committees is the repo on") > 70 || compareString(toLower(input), "what committees is the rep on") > 70 || compareString(toLower(input), "what committees is the representative on") > 70 || compareString(toLower(input), "committee assignments") > 70 || compareString(toLower(input), "what committees are they on") > 70 || compareString(toLower(input), "rep committee assignments") > 70 || compareString(toLower(input), "what committees are they on") > 70 || compareString(toLower(input), "representative committees") > 70 || compareString(toLower(input), "rep committees") > 70)
-
-            {
-                committee(str);
-                cout << endl;
-                compUtter++;
-
-                sessionFile << "Computer: " << "\n" << "Committee: " << returnCommittee(str) << "\n";
-
-
-                continue;
-            }
-
-            else if (compareString(toLower(input), "quit") > 70 || compareString(toLower(input), "q") > 70)
-            {
-                end = clock();
-
-                // Calculating total time taken by the program.
-                double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
-                cout << "Time taken by program is : " << fixed
-                    << time_taken << setprecision(5);
-                cout << " sec " << endl;
-                cout << "Goodbye";
-                create(userUtter, compUtter, time_taken, "data\\chat_sessions\\" + filename + ".txt", countname);
-                i = 0;
-            }
-            else if (!input.empty())
-            {
-                cout << "Invalid entry or we do not have that information. Try again." << endl;
-
-
-                continue;
-            }
-
-
-
         }
-    }
-    else
-    {
-        cout << "Not a valid response. Goodbye." << endl;
+        else if(answer == 3)
+        {
+        cout << "Goodbye." << endl;
         return 0;
+        }
+        else
+        {
+            cout << "Not a valid response. Goodbye." << endl;
+            return 0;
+        }
+
     }
     return 0;
 
