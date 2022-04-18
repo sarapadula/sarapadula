@@ -1,0 +1,34 @@
+User: region
+
+Computer: 
+Region: Beaufort,Hampton,&Jasper
+User: contact info
+
+Computer: 
+Columbia Address: 
+Home Address: P.O.Box267Hampton29924
+Business Phone: (803)212-6974
+Home Phone: (803)914-1242
+User: all info
+
+User: i want to know everything
+
+User: all information
+
+Computer: 
+Name: ShedronD.Williams
+Region: Beaufort,Hampton,&Jasper
+Colmbia Address: 
+Home Address: P.O.Box267Hampton29924
+Business Phone: (803)212-6974
+Home Phone: (803)914-1242
+Education: MorehouseCollege,B.S.,PublicHealth
+DOB: July29,1967
+Birth Place: ColletonCounty
+Spouse: CassandraBrooks,
+Children: 4children:Rozadeen,Winston,Tra-Von,andKyri
+Job Experience: HamptonCountyCouncil,2010-18
+Parents: lateRossieandRuthieWilliams
+Committee: Agriculture,NaturalResources&EnvironmentalAffairs
+User: quit
+
